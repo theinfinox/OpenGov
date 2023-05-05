@@ -1,0 +1,169 @@
+<html style="overflow: hidden;">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<link rel="stylesheet" href="/main.css">
+
+<div class="main" style="    color: white;
+    display: flex;
+    align-content: center;
+    align-items: center;overflow: hidden;border-radius: 12px;">
+    <div class="row">
+        <div style="    margin-top: 12px;
+    width: 15%;
+    position: relative;
+    height: 90%;
+    background: #244556;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 0px 8px;
+    border-radius: 12px;" id="linksX">
+            <button style="border-radius: 12px 12px 4px 4px;" class="linkXBt" onclick="setPage('neu')"
+                id="default">New</button>
+            <button style="border-radius: 4px;" class="linkXBt" onclick="setPage('starred')">Starred</button>
+
+            <button style="border-radius:4px 4px 12px 12px;" class="linkXBt"
+                onclick="setPage('trans')">Transferred</button>
+            <button style="position: absolute;bottom: 0px;border-radius: 12px;" class="linkXBt"
+                onclick="setPage('pay')">Payments</button>
+        </div>
+        <!-- <span class="material-symbols-sharp">
+    sync_alt
+</span> -->
+
+        <div style="    width: 75%;overflow:hidden;
+    height:350px;" id="ListDisplay">
+
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    _page = '0';
+    _currentPage = 'neu';
+    const display = document.getElementById('ListDisplay');
+    function classActive() {
+        var x = document.getElementById("linksX").children;
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+
+    var sampleData = {
+        'result':
+
+            [
+                {
+                    id: "rft16s",
+                    transactionName: "PWD",
+                    transactionID: '67bs879b29b991',
+                    starred: false
+                },
+                {
+                    id: "plk98w",
+                    transactionName: "ABC",
+                    transactionID: '9ff86aa2c8b373',
+                    starred: false
+                },
+                {
+                    id: "qwe23d",
+                    transactionName: "XYZ",
+                    transactionID: '3fb3d1ec05a912',
+                    starred: true
+                },
+                {
+                    id: "mnb05e",
+                    transactionName: "DEF",
+                    transactionID: '7d8b1ce6dc7f2f',
+                    starred: false
+                },
+                {
+                    id: "nhy56g",
+                    transactionName: "GHI",
+                    transactionID: '2dc8ff54cb77ed',
+                    starred: false
+                },
+                {
+                    id: "pol90j",
+                    transactionName: "MNO",
+                    transactionID: '4e4fdd43b2abbe',
+                    starred: true
+                },
+                {
+                    id: "tre78h",
+                    transactionName: "JKL",
+                    transactionID: 'a965a6e1b7d643',
+                    starred: false
+                },
+                {
+                    id: "fgh41k",
+                    transactionName: "QRS",
+                    transactionID: '5b334d69ddce2d',
+                    starred: false
+                }
+            ]
+
+
+
+    }
+
+    function _new() {
+        const template = `            <h2 class="extraBold" style="width: 100%;">Latest Transactions</h2>
+            <ul id="notifList" style="height: 250px;width: 100%;">
+                %%SVy
+            </ul>`;
+
+        const listElem = `                <li>
+                    <p class="material-symbols-sharp starBoy " style='MartoIo'>star</p>
+                    $6c7d6c
+                    <p class="acceptClick material-symbols-sharp" id='%$^v' data-transactId="%77b8" onclick="openTransact('718b11')">done</p>
+                </li>`
+
+        data = sampleData.result;
+        var list = '';
+        for (var i = 0; i < data.length; i++) {
+            list += listElem.replace('$6c7d6c', data[i].transactionName).replace('%$^v', data[i].id).replace('%77b8', data[i].transactionID).replace('718b11', data[i].transactionID);
+            if (data[i].starred) {
+                list = list.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
+            }
+            else {
+                list = list.replace(`style='MartoIo'`, '');
+            }
+        }
+        display.innerHTML = template.replace('%%SVy', list);
+
+    }
+
+    function setPage(pg) {
+
+        if (pg == 'neu') {
+            _new()
+        } else if (pg == 'starred') {
+
+        } else if (pg == 'trans') {
+
+        } else if (pg == 'pay') {
+
+        }
+    }
+
+    function activateClick() {
+        var x = document.getElementById('linksX').children;
+        for (var i = 0; i < x.length; i++) {
+            x[i].addEventListener('click', classActive);
+        }
+    }
+    activateClick()
+    function openTransact(id) {
+        console.log(id)
+    }
+
+    document.getElementById('default').click();
+</script>
+
+</html>

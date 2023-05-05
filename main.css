@@ -1,0 +1,865 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,400;0,500;0,700;0,800;0,900;1,200;1,400;1,500;1,700;1,800;1,900&display=swap");
+
+:root {
+  --text: black;
+  --accent: #47ff9e;
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+html {
+  scrollbar-color: var(--text) rgb(71, 71, 71);
+  scrollbar-width: thin;
+  font-family: "Noto Sans", sans-serif;
+  animation: gradient 10s ease infinite;
+  scrollbar-width: none;
+  user-select: none;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 0px;
+  border-radius: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #50505000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #47ff9d51;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #47ff9e;
+}
+
+::-webkit-scrollbar-corner {
+  color: #000;
+}
+
+h1 {
+  margin: 4px 0px;
+}
+
+h2 {
+  margin: 4px 0px;
+}
+h3 {
+  margin: 4px 0px;
+}
+h4 {
+  margin: 4px 0px;
+}
+h5 {
+  margin: 4px 0px;
+}
+p {
+  margin: 4px 0px;
+}
+.bold {
+  font-weight: bold;
+}
+
+.superBold {
+  font-weight: 800;
+}
+
+.extraBold {
+  font-weight: 900;
+}
+
+.light {
+  font-weight: 400;
+}
+
+.extraLight {
+  font-weight: 200;
+}
+
+._100px {
+  width: 100px;
+  height: 100px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.box {
+  display: block;
+}
+
+.box.accent {
+  background-color: var(--accent);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.white {
+  color: white;
+}
+
+.footer {
+  background-color: #000;
+  height: 10vh;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  box-shadow: 0px -9px 20px #47ff9e4d;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 100vh;
+  background: linear-gradient(182deg, #002c2e, black);
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-direction: column;
+}
+
+#headerContainer {
+  font-size: 28px;
+  padding-bottom: 8px;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  padding-left: 12px;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #47ff9e;
+  align-content: center;
+}
+
+.heroImage {
+  background: linear-gradient(177deg, #00000059, rgb(0 0 0)),
+    url("https://unsplash.com/photos/ZjmKvH9pBrM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8aW5mcmFzdHJ1Y3R1cmV8ZW58MHx8fHwxNjgzMTU5MTc3");
+  height: 200px;
+  width: 85%;
+  background-size: 120%;
+  border-radius: 33px;
+  background-position: center;
+  z-index: 8;
+  position: relative;
+  transition: 200ms;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+.heroImage > p {
+  transform: translateY(40%);
+  height: 0px;
+  transition: inherit;
+  opacity: 0;
+  overflow: hidden;
+  color: #00b0ba;
+  filter: blur(4px);
+}
+.heroImage:hover {
+  background-size: 100%;
+}
+.heroImage:hover > p {
+  transform: translateY(0%);
+  filter: blur(0px);
+
+  height: 20px;
+  opacity: 1;
+}
+.form {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.input {
+  width: 80%;
+  margin: 4px;
+  text-align: center;
+  outline-style: solid;
+  outline-color: rgb(255, 255, 255);
+  outline-width: 0px;
+  color: #fff;
+  background-color: rgba(43, 43, 43, 0);
+  /* border-width: 2px; */
+  border-radius: 12px;
+  border-style: none;
+
+  border: 2px solid #ffffff;
+  height: 28px;
+  border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  border-top-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  border-right-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  border-bottom-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  border-left-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+}
+
+select option {
+  background: #002c2e;
+  outline: none;
+}
+select option:hover {
+  background: #00b0ba;
+  outline: none;
+}
+.login {
+  width: 200px;
+  margin: 12px;
+  height: 54px;
+  padding: 13px;
+  cursor: pointer;
+  border-radius: 25px;
+  background: linear-gradient(45deg, var(--accent), #00ffc2);
+  font-weight: 800;
+  font-size: 18px;
+  outline: none;
+  color: #000;
+  border: none;
+  transition: 100ms;
+}
+.login > span {
+  margin-left: 12px;
+  font-weight: 900;
+}
+.login:hover {
+  background: black;
+  color: #00b0ba;
+}
+.loginContainer {
+  height: 68vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition: 200ms;
+}
+.loginContainer:hover {
+  background-color: #004b4f21;
+}
+
+.shadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  filter: blur(32px);
+  z-index: 7;
+  transform: translate(-50%, -50%);
+}
+
+.heroContainer {
+  display: block;
+}
+
+#notifPanel {
+  height: 90%;
+  width: 90%;
+
+  border-radius: 39px;
+  padding: 13px 0px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+#notifList {
+  list-style: none;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  /* margin: 12px 4px 12px 4px; */
+  overflow: scroll;
+}
+#notifList > li {
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 3px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 100ms;
+  padding-left: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: relative;
+}
+#notifList > li:hover .starBoy {
+  color: gold;
+}
+#notifList > li > p {
+  margin: 4px;
+}
+.starBoy {
+  color: #00ffc2;
+  transition: 200ms;
+  padding: 4px;
+  font-size: 12px;
+}
+.starBoy:hover {
+  scale: 1;
+  background: #004b4f;
+}
+
+.acceptClick {
+  background-color: rgb(0, 255, 94);
+  color: rgb(0, 108, 14);
+  position: absolute;
+  right: 1px;
+  padding: 9px;
+  border-radius: 4px;
+  transition: 200ms;
+}
+.acceptClick:hover {
+  color: rgb(0, 255, 94);
+  background-color: rgb(0, 36, 5);
+}
+.dialogContainer {
+  backdrop-filter: blur(4px);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+  background: #363d696e;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 100ms;
+}
+.mediumSizeDialog {
+  overflow: hidden;
+  background: #00191f;
+  /* color: #00ceff; */
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 549px;
+  height: 308px;
+  padding: 47px;
+  border-radius: 22px;
+  position: relative;
+  opacity: 0;
+  transition: 200ms;
+}
+.actionRow {
+  gap: 12px;
+}
+.actionRow > div {
+  height: 50px;
+  width: 120px;
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  transition: 100ms;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+.actionRow > #ConfirmBt {
+  background: rgb(29, 56, 0);
+  color: rgb(191, 255, 127);
+}
+.actionRow > #ConfirmBt:hover {
+  background: rgb(191, 255, 127);
+  color: rgb(29, 56, 0);
+}
+
+.actionRow > #CancelBt {
+  background: rgb(56, 0, 0);
+  color: rgb(255, 127, 127);
+}
+.actionRow > #CancelBt:hover {
+  background: rgb(255, 127, 127);
+  color: rgb(56, 0, 0);
+}
+#notifList > li:hover {
+  background: #00b0ba;
+  color: #004b4f;
+}
+.loginBox {
+  width: 30%;
+  height: 87%;
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  border-radius: 24px;
+  transition: 200ms;
+  display: flex;
+  font-weight: 800;
+  flex-direction: column;
+  align-content: center;
+  padding: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.loginBox:hover {
+  background-color: rgb(0, 156, 195);
+  color: rgb(0, 45, 56);
+}
+
+a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #00b0ba;
+}
+
+#links {
+  transition: 200ms;
+}
+.searchBt {
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  transition: 100ms;
+  cursor: pointer;
+}
+.searchBt:hover {
+  background-color: rgb(0, 156, 195);
+  color: rgb(0, 45, 56);
+  transform: translateY(-4px);
+}
+#links > div {
+  height: 50px;
+  width: 12%;
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  transition: 100ms;
+  font-weight: 900;
+  cursor: pointer;
+}
+#links > div:hover {
+  background-color: rgb(0, 156, 195);
+  transform: translateY(-4px);
+  color: rgb(0, 45, 56);
+}
+.linkXBt:hover {
+  background-color: rgb(0, 156, 195);
+  /* transform: translateY(-4px); */
+  color: rgb(0, 45, 56);
+}
+
+button {
+  border: none;
+}
+.linkXBt {
+  height: 50px;
+  width: 90%;
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  transition: 100ms;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 4px 0px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.active {
+  background: rgb(127, 229, 255);
+  color: rgb(0, 45, 56);
+  scale: 0.9;
+}
+
+.active:hover {
+  background: rgba(69, 184, 255, 0.655);
+  color: rgb(0, 37, 47);
+  scale: 0.9;
+}
+.loginInfo {
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: rgb(0, 0, 0);
+    --accent: #47ff9e;
+  }
+
+  .body {
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+
+  html {
+    scrollbar-color: var(--text) rgb(71, 71, 71);
+    scrollbar-width: thin;
+    font-family: "Noto Sans", sans-serif;
+    animation: gradient 10s ease infinite;
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+    border-radius: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #50505000;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #47ff9d51;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #47ff9e;
+  }
+
+  ::-webkit-scrollbar-corner {
+    color: #000;
+  }
+
+  h1 {
+    margin: 4px 0px;
+  }
+
+  h2 {
+    margin: 4px 0px;
+  }
+  h3 {
+    margin: 4px 0px;
+  }
+  h4 {
+    margin: 4px 0px;
+  }
+  h5 {
+    margin: 4px 0px;
+  }
+  p {
+    margin: 4px 0px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+
+  .superBold {
+    font-weight: 800;
+  }
+
+  .extraBold {
+    font-weight: 900;
+  }
+
+  .light {
+    font-weight: 400;
+  }
+
+  .extraLight {
+    font-weight: 200;
+  }
+
+  ._100px {
+    width: 100px;
+    height: 100px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .box {
+    display: block;
+  }
+
+  .box.accent {
+    background-color: var(--accent);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .white {
+    color: white;
+  }
+
+  .footer {
+    background-color: #000;
+    height: 10vh;
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    box-shadow: 0px -9px 20px #47ff9e4d;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .main {
+    height: 100vh;
+    background: linear-gradient(182deg, #00b58b, rgb(252, 252, 252));
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #headerContainer {
+    font-size: 28px;
+    padding-bottom: 8px;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    padding-left: 12px;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #002b14;
+    align-content: center;
+  }
+
+  .heroImage {
+    background: linear-gradient(177deg, #00000059, rgb(0 0 0)),
+      url("https://unsplash.com/photos/ZjmKvH9pBrM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8aW5mcmFzdHJ1Y3R1cmV8ZW58MHx8fHwxNjgzMTU5MTc3");
+    height: 200px;
+    width: 85%;
+    background-size: 120%;
+    border-radius: 33px;
+    background-position: center;
+    z-index: 8;
+    position: relative;
+    transition: 200ms;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+  }
+  .heroImage > p {
+    transform: translateY(40%);
+    height: 0px;
+    transition: inherit;
+    opacity: 0;
+    overflow: hidden;
+    color: #00b0ba;
+    filter: blur(4px);
+  }
+  .heroImage:hover {
+    background-size: 100%;
+  }
+  .heroImage:hover > p {
+    transform: translateY(0%);
+    filter: blur(0px);
+
+    height: 20px;
+    opacity: 1;
+  }
+  .form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  .input {
+    width: 80%;
+    margin: 4px;
+    text-align: center;
+    outline-style: solid;
+    outline-color: rgb(255, 255, 255);
+    outline-width: 0px;
+    color: #fff;
+    background-color: rgba(43, 43, 43, 0);
+    /* border-width: 2px; */
+    border-radius: 12px;
+    border-style: none;
+
+    border: 2px solid #ffffff;
+    height: 28px;
+    border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+    border-top-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+    border-right-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+    border-bottom-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+    border-left-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  }
+
+  select option {
+    background: #002c2e;
+    outline: none;
+  }
+  select option:hover {
+    background: #00b0ba;
+    outline: none;
+  }
+  .login {
+    width: 200px;
+    margin: 12px;
+    height: 54px;
+    padding: 13px;
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(45deg, var(--accent), #00ffc2);
+    font-weight: 800;
+    font-size: 18px;
+    outline: none;
+    color: #000;
+    border: none;
+    transition: 100ms;
+  }
+  .login > span {
+    margin-left: 12px;
+    font-weight: 900;
+  }
+  .login:hover {
+    background: black;
+    color: #00b0ba;
+  }
+  .loginContainer {
+    height: 68vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    transition: 200ms;
+  }
+  .loginContainer:hover {
+    background-color: #004b4f21;
+  }
+
+  .shadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    filter: blur(32px);
+    z-index: 7;
+    transform: translate(-50%, -50%);
+  }
+
+  .heroContainer {
+    display: block;
+  }
+
+  #notifPanel {
+    height: 90%;
+    width: 90%;
+
+    border-radius: 39px;
+    padding: 13px 0px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  #notifList {
+    list-style: none;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    /* margin: 12px 4px 12px 4px; */
+    overflow: scroll;
+  }
+  #notifList > li {
+    color: #47ff9e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 3px 12px;
+    background: #004b4f;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 100ms;
+  }
+
+  #notifList > li > p {
+    margin: 4px;
+  }
+
+  #notifList > li:hover {
+    background: #00b0ba;
+    color: #004b4f;
+  }
+  .loginBox {
+    width: 30%;
+    height: 87%;
+    background: #004b4f;
+    border-radius: 24px;
+    transition: 200ms;
+    display: flex;
+    font-weight: 800;
+    color: #00b0ba;
+    flex-direction: column;
+    align-content: center;
+    padding: 12px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .loginBox:hover {
+    background: #00b0ba;
+    color: #004b4f;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #00b0ba;
+  }
+}
