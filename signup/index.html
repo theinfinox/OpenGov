@@ -34,54 +34,6 @@
             </div>
         </div>
         <div class="loginContainer">
-            <div style="    height: 100%;
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;">
-
-                <div class="heroImage">
-                    <p style="width:100%;text-align: center;">World's First Decentralized Public Fund Management System
-                    </p>
-                </div>
-
-                <div style="    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;">
-                    <div id="notifPanel" style="height: 90%;width: 90%;">
-                        <ul id="notifList">
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                            <li>
-                                <p class="extraBold">Date</p>HACK HACK HACK...
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
             <div class="loginBox">
                 Login Here
@@ -96,16 +48,19 @@
                             class="input">
                     </div>
                     <div class="row">
-                        <label for="entity">Select User Type</label>
-                        <select class='input' name="entity">
-                            <option value="civil">Civilian</option>
-                            <option value="sgs">State Government</option>
-                            <option value="cgs">Central Government</option>
+                        <label for="aadhaar">Enter Your Aadhaar No.</label>
+                        <input type="password" name="aadhaar" id="aadhaar" placeholder="Aadhaar ID here" required
+                            class="input">
+                        <!-- <select class='input' name="entity">
+                            <option value="aadhar">Civilian</option>
+                            <option value="phone">State Government</option>
+                            <option value="email">Central Government</option>
                             <option value="comp">Company</option>
-                        </select>
+                        </select> -->
                     </div>
                 </form>
-                <button class="login row" onclick="validate_login()" type="submit" id="Login">Login
+                <button class="login row" onclick="validate_login()" type="submit" id="Login"
+                    style="width: 250px;">Signup & Continue
                     <span class="material-symbols-sharp">
                         arrow_forward
                     </span>

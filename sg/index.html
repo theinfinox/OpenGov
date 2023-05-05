@@ -53,7 +53,6 @@
         }
         this.classList.add("active");
     }
-
     var sampleData = {
         'result':
 
@@ -126,10 +125,10 @@
                 %%SVy
             </ul>`;
 
-    const listElem = `                <li>
+    const listElem = `                <li id='%76v'>
                     <p class="material-symbols-sharp starBoy " style='MartoIo' onclick="starMe('718b11')">star</p>
                     $6c7d6c
-                    <p class="acceptClick material-symbols-sharp" id='%$^v' data-transactId="%77b8" onclick="openTransact('718b11')">done</p>
+                    <p class="acceptClick material-symbols-sharp" id='%76v' data-transactId="%77b8" onclick="openTransact('718b11')">done</p>
                 </li>`
 
     function _new() {
@@ -151,7 +150,7 @@
                 ua = ua.replace('done', 'done_all');
                 ua = ua.replace(`onclick="openTransact('718b11')"`, '');
             }
-            list += ua.replace('$6c7d6c', data[i].transactionName).replace('%$^v', data[i].id).replace('%77b8', data[i].transactionID).replace(/718b11/g, data[i].transactionID);
+            list += ua.replace('$6c7d6c', data[i].transactionName).replace(/%76v/g, data[i].id).replace('%77b8', data[i].transactionID).replace(/718b11/g, data[i].transactionID);
 
         }
         display.innerHTML = template.replace('%%SVy', list);
@@ -184,7 +183,7 @@
             }
             ua = ua.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
 
-            list += ua.replace('$6c7d6c', _starred[i].transactionName).replace('%$^v', _starred[i].id).replace('%77b8', _starred[i].transactionID).replace(/718b11/g, _starred[i].transactionID);
+            list += ua.replace('$6c7d6c', _starred[i].transactionName).replace(/%76v/g, _starred[i].id).replace('%77b8', _starred[i].transactionID).replace(/718b11/g, _starred[i].transactionID);
         }
         display.innerHTML = template.replace('%%SVy', list);
     }
@@ -213,18 +212,23 @@
             else {
                 ua = ua.replace(`style='MartoIo'`, '');
             }
-            list += ua.replace('$6c7d6c', _done[i].transactionName).replace('%$^v', _done[i].id).replace('%77b8', _done[i].transactionID).replace(/718b11/g, _done[i].transactionID);
+            list += ua.replace('$6c7d6c', _done[i].transactionName).replace(/%76v/g, _done[i].id).replace('%77b8', _done[i].transactionID).replace(/718b11/g, _done[i].transactionID);
         }
         display.innerHTML = template.replace('%%SVy', list);
     }
+
+
     function setPage(pg) {
 
         if (pg == 'neu') {
             _new()
+            _page = 0;
         } else if (pg == 'starred') {
             _starred()
+            _page = 1;
         } else if (pg == 'trans') {
             _trans()
+            _page = 2;
         } else if (pg == 'pay') {
 
         }
@@ -247,9 +251,57 @@
     document.getElementById('default').click();
 
     function starMe(io) {
-        console.log(io)
+        // console.log(io)
+        var id = ""
+        sampleData.result.forEach(element => {
+            if (element.transactionID == io) {
+                element.starred = !(element.starred)
+                id = element.id
+
+            }
+        });
+        refresh_data()
+        document.getElementById("notifList").scrollTop = document.getElementById(id).offsetTop;
+    }
+    function refresh_data() {
+        if (_page == 0) {
+            _new()
+        } else if (_page == 1) {
+            _starred()
+        } else if (_page == 2) {
+            _trans()
+        }
     }
 
+    function transferStateReady(id) {
+        var ivd = ""
+
+        sampleData.result.forEach(element => {
+            if (element.transactionID == id) {
+                element.transferState = 'ready'
+                ivd = element.id
+
+            }
+        });
+
+
+        refresh_data()
+        document.getElementById("notifList").scrollTop = document.getElementById(ivd).offsetTop;
+    }
+    function transferStateOn(id) {
+        var ivd = ""
+
+        sampleData.result.forEach(element => {
+            if (element.transactionID == id) {
+                element.transferState = 'on'
+                ivd = element.id
+
+            }
+        });
+
+        refresh_data()
+        document.getElementById("notifList").scrollTop = document.getElementById(ivd).offsetTop;
+    }
 </script>
 
 </html>
