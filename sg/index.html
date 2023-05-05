@@ -62,91 +62,169 @@
                     id: "rft16s",
                     transactionName: "PWD",
                     transactionID: '67bs879b29b991',
-                    starred: false
+                    starred: true,
+                    transferState: 'off'
                 },
                 {
                     id: "plk98w",
                     transactionName: "ABC",
                     transactionID: '9ff86aa2c8b373',
-                    starred: false
+                    starred: false,
+                    transferState: 'off'
                 },
                 {
                     id: "qwe23d",
                     transactionName: "XYZ",
                     transactionID: '3fb3d1ec05a912',
-                    starred: true
+                    starred: true,
+                    transferState: 'ready'
                 },
                 {
                     id: "mnb05e",
                     transactionName: "DEF",
                     transactionID: '7d8b1ce6dc7f2f',
-                    starred: false
+                    starred: false,
+                    transferState: 'on'
                 },
                 {
                     id: "nhy56g",
                     transactionName: "GHI",
                     transactionID: '2dc8ff54cb77ed',
-                    starred: false
+                    starred: false,
+                    transferState: 'ready'
                 },
                 {
                     id: "pol90j",
                     transactionName: "MNO",
                     transactionID: '4e4fdd43b2abbe',
-                    starred: true
+                    starred: true,
+                    transferState: 'on'
                 },
                 {
                     id: "tre78h",
                     transactionName: "JKL",
                     transactionID: 'a965a6e1b7d643',
-                    starred: false
+                    starred: false,
+                    transferState: 'off'
                 },
                 {
                     id: "fgh41k",
                     transactionName: "QRS",
                     transactionID: '5b334d69ddce2d',
-                    starred: false
+                    starred: false,
+                    transferState: 'off'
                 }
             ]
 
 
 
+
     }
 
-    function _new() {
-        const template = `            <h2 class="extraBold" style="width: 100%;">Latest Transactions</h2>
+    const template = `            <h2 class="extraBold" style="width: 100%;">Latest Transactions</h2>
             <ul id="notifList" style="height: 250px;width: 100%;">
                 %%SVy
             </ul>`;
 
-        const listElem = `                <li>
-                    <p class="material-symbols-sharp starBoy " style='MartoIo'>star</p>
+    const listElem = `                <li>
+                    <p class="material-symbols-sharp starBoy " style='MartoIo' onclick="starMe('718b11')">star</p>
                     $6c7d6c
                     <p class="acceptClick material-symbols-sharp" id='%$^v' data-transactId="%77b8" onclick="openTransact('718b11')">done</p>
                 </li>`
 
+    function _new() {
+
         data = sampleData.result;
         var list = '';
         for (var i = 0; i < data.length; i++) {
-            list += listElem.replace('$6c7d6c', data[i].transactionName).replace('%$^v', data[i].id).replace('%77b8', data[i].transactionID).replace('718b11', data[i].transactionID);
+            var ua = ''
             if (data[i].starred) {
-                list = list.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
+                ua = listElem.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
             }
             else {
-                list = list.replace(`style='MartoIo'`, '');
+                ua = listElem.replace(`style='MartoIo'`, '');
             }
+            if (data[i].transferState == 'ready') {
+                ua = ua.replace('done', 'sync_alt');
+                ua = ua.replace(`onclick="openTransact('718b11')"`, 'onclick="Transfer(`' + data[i].transactionID + '`)"');
+            } else if (data[i].transferState == 'on') {
+                ua = ua.replace('done', 'done_all');
+                ua = ua.replace(`onclick="openTransact('718b11')"`, '');
+            }
+            list += ua.replace('$6c7d6c', data[i].transactionName).replace('%$^v', data[i].id).replace('%77b8', data[i].transactionID).replace(/718b11/g, data[i].transactionID);
+
         }
         display.innerHTML = template.replace('%%SVy', list);
-
     }
+    function _starred() {
 
+        data = sampleData.result;
+        var list = '';
+        var _starred = []
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].starred) {
+                _starred.push(data[i])
+
+            }
+        }
+
+        for (var i = 0; i < _starred.length; i++) {
+            var ua = ''
+
+            if (_starred[i].transferState == 'ready') {
+                ua = listElem.replace('done', 'sync_alt');
+                ua = ua.replace(`onclick="openTransact('718b11')"`, 'onclick="Transfer(`' + data[i].transactionID + '`)"');
+
+            } else if (_starred[i].transferState == 'on') {
+                ua = listElem.replace('done', 'done_all');
+                ua = ua.replace(`onclick="openTransact('718b11')"`, '');
+
+            } else {
+                ua = listElem
+            }
+            ua = ua.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
+
+            list += ua.replace('$6c7d6c', _starred[i].transactionName).replace('%$^v', _starred[i].id).replace('%77b8', _starred[i].transactionID).replace(/718b11/g, _starred[i].transactionID);
+        }
+        display.innerHTML = template.replace('%%SVy', list);
+    }
+    function _trans() {
+
+        data = sampleData.result;
+        var list = '';
+        var _done = []
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].transferState == 'on') {
+                _done.push(data[i])
+
+            }
+        }
+
+        for (var i = 0; i < _done.length; i++) {
+            var ua = ''
+
+            ua = listElem.replace('done', 'done_all');
+            ua = ua.replace(`onclick="openTransact('718b11')"`, '');
+
+
+            if (data[i].starred) {
+                ua = ua.replace('MartoIo', `font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48; `);
+            }
+            else {
+                ua = ua.replace(`style='MartoIo'`, '');
+            }
+            list += ua.replace('$6c7d6c', _done[i].transactionName).replace('%$^v', _done[i].id).replace('%77b8', _done[i].transactionID).replace(/718b11/g, _done[i].transactionID);
+        }
+        display.innerHTML = template.replace('%%SVy', list);
+    }
     function setPage(pg) {
 
         if (pg == 'neu') {
             _new()
         } else if (pg == 'starred') {
-
+            _starred()
         } else if (pg == 'trans') {
-
+            _trans()
         } else if (pg == 'pay') {
 
         }
@@ -160,10 +238,18 @@
     }
     activateClick()
     function openTransact(id) {
-        console.log(id)
+        window.parent.openPopup('transactionConf', id)
+
+    }
+    function Transfer(id) {
+        window.parent.openPopup('transfer', id)
+    }
+    document.getElementById('default').click();
+
+    function starMe(io) {
+        console.log(io)
     }
 
-    document.getElementById('default').click();
 </script>
 
 </html>

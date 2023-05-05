@@ -6,12 +6,17 @@ async function sleep(ms) {
 // Path: app.js
 
 async function openPopup(id, passData) {
+
     var popupContainer = document.getElementById("containerD");
     popupContainer.style.display = "flex";
     await sleep(100);
     popupContainer.style.opacity = 1;
     var popup = document.getElementById(id);
     popup.style.display = "flex";
+    if (id == "transactionConf") {
+        document.getElementById("ConfirmBttrans").setAttribute("onclick", "transConf('" + passData + "')")
+        document.getElementById("TransactID").innerHTML = "Transaction ID : " + passData;
+    }
     await sleep(100);
     popup.style.opacity = 1;
 }
@@ -21,6 +26,8 @@ async function closePopup(id) {
     await sleep(100);
     popup.style.display = "none";
     var popupContainer = document.getElementById("containerD");
+    document.getElementById("TransactID").innerHTML = "loading...";
+
     popupContainer.style.opacity = 0;
     await sleep(100);
     popupContainer.style.display = "none";
@@ -33,4 +40,9 @@ async function test() {
 
 function closeThis(e) {
     closePopup(e)
+}
+
+function transConf(id) {
+    console.log(id)
+    closePopup("transactionConf");
 }

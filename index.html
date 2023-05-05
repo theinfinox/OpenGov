@@ -18,11 +18,21 @@
             <h1>New Transactions</h1>
             <h3 class="Light" style="color: rgb(255, 111, 0);">Warning: This action is irreversible after confirmation
             </h3>
-            <p>Transaction ID : 86b87d989bu9d297b091bb89s</p>
+            <p id="TransactID">loading...</p>
             <div class="row actionRow" style="position: absolute;
             bottom: 48px;height: 50px;width: 70%;">
-                <div id="ConfirmBt">Confirm</div>
-                <div id="CancelBt" onclick="closeThis('transactionConf')">Cancel</div>
+                <div id="ConfirmBttrans" class="confirm">Confirm</div>
+                <div id="CancelBt" onclick="closeThis('transactionConf')" class="cancel">Cancel</div>
+            </div>
+        </div>
+        <div id="transfer" class="mediumSizeDialog">
+            <h1>Ready to Transfer</h1>
+            <h3 class="Light">
+            </h3>
+            <div class="row actionRow" style="position: absolute;
+            bottom: 48px;height: 50px;width: 70%;">
+                <div id="confirmTransfer" class="confirm">Transfer</div>
+                <div id="CancelBt" onclick="closeThis('transfer')" class="cancel">Cancel</div>
             </div>
         </div>
     </div>

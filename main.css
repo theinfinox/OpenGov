@@ -306,11 +306,12 @@ select option:hover {
   justify-content: flex-start;
   margin: 3px 12px;
   border-radius: 4px;
+
   cursor: pointer;
   transition: 100ms;
-  padding-left: 12px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-left: 44px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   position: relative;
 }
 #notifList > li:hover .starBoy {
@@ -323,7 +324,18 @@ select option:hover {
   color: #00ffc2;
   transition: 200ms;
   padding: 4px;
-  font-size: 12px;
+  font-size: 18px;
+  transition: 100ms;
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  left: 4px;
 }
 .starBoy:hover {
   scale: 1;
@@ -335,9 +347,10 @@ select option:hover {
   color: rgb(0, 108, 14);
   position: absolute;
   right: 1px;
-  padding: 9px;
+  padding: 6px;
   border-radius: 4px;
   transition: 200ms;
+  margin: 4px;
 }
 .acceptClick:hover {
   color: rgb(0, 255, 94);
@@ -382,7 +395,8 @@ select option:hover {
 .actionRow {
   gap: 12px;
 }
-.actionRow > div {
+
+.confirm {
   height: 50px;
   width: 120px;
   background: rgb(0, 45, 56);
@@ -395,21 +409,31 @@ select option:hover {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-}
-.actionRow > #ConfirmBt {
   background: rgb(29, 56, 0);
   color: rgb(191, 255, 127);
 }
-.actionRow > #ConfirmBt:hover {
+.confirm:hover {
   background: rgb(191, 255, 127);
   color: rgb(29, 56, 0);
 }
 
-.actionRow > #CancelBt {
+.cancel {
+  height: 50px;
+  width: 120px;
+  background: rgb(0, 45, 56);
+  color: rgb(127, 229, 255);
+  transition: 100ms;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
   background: rgb(56, 0, 0);
   color: rgb(255, 127, 127);
 }
-.actionRow > #CancelBt:hover {
+.cancel:hover {
   background: rgb(255, 127, 127);
   color: rgb(56, 0, 0);
 }
