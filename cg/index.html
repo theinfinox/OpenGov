@@ -8,6 +8,7 @@
     display: flex;
     align-content: center;
     align-items: center;overflow: hidden;border-radius: 12px;">
+
     <div class="row">
         <div style="    margin-top: 12px;
     width: 15%;
@@ -20,6 +21,9 @@
     align-items: center;
     margin: 0px 8px;
     border-radius: 12px;" id="linksX">
+            <button style="border-radius: 12px;" class="linkXBt"><span
+                    class="material-symbols-sharp">edit</span>Compose</button>
+
             <button style="border-radius: 12px 12px 4px 4px;" class="linkXBt" onclick="setPage('neu')"
                 id="default">New</button>
             <button style="border-radius: 4px;" class="linkXBt" onclick="setPage('starred')">Starred</button>
@@ -53,7 +57,6 @@
         }
         this.classList.add("active");
     }
-    var sampleData = {}
     async function loadData() {
         var data = await fetch("/data.json");
         var data = await data.json();
@@ -63,6 +66,7 @@
 
     }
     loadData()
+
     const template = `            <h2 class="extraBold" style="width: 100%;">Latest Transactions</h2>
             <ul id="notifList" style="height: 250px;width: 100%;">
                 %%SVy
@@ -179,7 +183,7 @@
 
     function activateClick() {
         var x = document.getElementById('linksX').children;
-        for (var i = 0; i < x.length; i++) {
+        for (var i = 1; i < 4; i++) {
             x[i].addEventListener('click', classActive);
         }
     }
@@ -191,7 +195,7 @@
     function Transfer(id) {
         window.parent.openPopup('transfer', id)
     }
-
+    // document.getElementById('default').click();
 
     function starMe(io) {
         // console.log(io)

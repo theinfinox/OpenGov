@@ -10,15 +10,34 @@
             <h2 class="extraBold">Latest Transactions</h2>
         </div>
         <ul id="notifList" style="height: 350px;">
-            <li>Pseudo Transact 1</li>
-            <li>Pseudo Transact 2</li>
-            <li>Pseudo Transact 3</li>
-            <li>Pseudo Transact 4</li>
-            <li>Pseudo Transact 5</li>
-            <li>Pseudo Transact 6</li>
+
         </ul>
     </div>
 
 </div>
+
+<script>
+    var sampleData = {}
+    async function loadData() {
+        var data = await fetch("/data.json");
+        var data = await data.json();
+        sampleData = data;
+        console.log(data)
+        LoadTransactions()
+    }
+    loadData()
+    function LoadTransactions() {
+        var list = document.getElementById("notifList");
+        var data = sampleData.result;
+        for (var i = 0; i < data.length; i++) {
+            var li = document.createElement("li");
+            li.innerHTML = data[i].transactionName;
+            li.setAttribute("id", data[i].id);
+            li.setAttribute("onclick", "LoadTransactionDetails(this.id)");
+            list.appendChild(li);
+        }
+    }
+
+</script>
 
 </html>
